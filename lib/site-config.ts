@@ -58,11 +58,12 @@ export const siteConfig = {
    * Menu chính. Hiện là landing page một trang nên trỏ tới anchor của section;
    * khi các trang con (REQUIREMENTS 7.1) hoàn thành thì đổi sang route tương ứng.
    */
+  // Thứ tự phải khớp thứ tự section trong app/page.tsx
   nav: [
     { label: 'Giới thiệu', href: '/#gioi-thieu' },
     { label: 'Dịch vụ', href: '/#dich-vu' },
-    { label: 'Đội ngũ bác sĩ', href: '/#doi-ngu-bac-si' },
     { label: 'Thư viện ảnh', href: '/#thu-vien-anh' },
+    { label: 'Đội ngũ bác sĩ', href: '/#doi-ngu-bac-si' },
     { label: 'Kiến thức', href: '/#kien-thuc' },
     { label: 'Liên hệ', href: '/#lien-he' },
   ] satisfies NavItem[],
