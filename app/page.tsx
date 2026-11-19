@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
 import { siteConfig } from '@/lib/site-config'
 import { HeroSection } from '@/components/sections/HeroSection'
-import { UspSection } from '@/components/sections/UspSection'
+import { AboutUs } from '@/components/sections/AboutUs'
+import { Process } from '@/components/sections/Process'
 import { ServicesSection } from '@/components/sections/ServicesSection'
 import { DoctorsSection } from '@/components/sections/DoctorsSection'
 import { GallerySection } from '@/components/sections/GallerySection'
@@ -21,10 +22,11 @@ export default function HomePage() {
     <>
       <JsonLd />
       <HeroSection />
-      <UspSection />
+      <AboutUs />
       <ServicesSection />
-      <DoctorsSection />
+      <Process />
       <GallerySection />
+      <DoctorsSection />
       <PostsSection />
       <BookingSection />
     </>

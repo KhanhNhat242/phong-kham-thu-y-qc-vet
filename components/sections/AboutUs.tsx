@@ -1,18 +1,9 @@
 import Link from 'next/link'
-import { services } from '@/data/services'
 import { siteConfig } from '@/lib/site-config'
 import { noOrphan } from '@/lib/typography'
 import { SectionHeading } from '@/components/ui/SectionHeading'
-import { ArrowRightIcon, CalendarIcon, CheckIcon } from '@/components/ui/Icons'
+import { CalendarIcon } from '@/components/ui/Icons'
 import TiltedCard, { TiltedCardLayer } from '@/components/ui/TiltedCard/TiltedCard'
-import { ProcessSteps } from './ProcessSteps'
-
-/** Các ý chính — chỉ nêu điều có thật / quy tắc của dự án, không số liệu, không cam kết kết quả. */
-const highlights = [
-  'Trọn gói 5 dịch vụ trong cùng một tòa nhà 4 tầng, bé không phải di chuyển nhiều nơi.',
-  'Mỗi tầng một khu riêng: khám, chẩn đoán hình ảnh, xét nghiệm – phẫu thuật và spa.',
-  'Chi phí được báo rõ sau khi bác sĩ thăm khám, trước khi thực hiện dịch vụ.',
-]
 
 /** Cấu hình chung của TiltedCard (React Bits) theo yêu cầu */
 const tilt = {
@@ -28,14 +19,11 @@ const tilt = {
 } as const
 
 /**
- * Section 2 – USP "Trọn gói tại 1 cơ sở". Nền trắng.
- * Tầng 1 (theo ảnh mẫu khách gửi): trái = 2 ảnh chồng lệch dùng TiltedCard (nghiêng theo chuột,
- * bấm để lật xem thông tin); phải = nhãn + tiêu đề + mô tả + 3 ý + số điện thoại + 2 nút.
- * Tầng 2: quy trình 5 bước dạng đường cong (ProcessSteps).
+ * Section Giới thiệu (USP "Trọn gói tại 1 cơ sở"). Nền trắng.
+ * Theo ảnh mẫu khách gửi: trái = 2 ảnh chồng lệch dùng TiltedCard (nghiêng theo chuột,
+ * bấm để lật xem thông tin); phải = nhãn + tiêu đề + mô tả + nút đặt lịch.
  */
-export function UspSection() {
-  const steps = services.map(({ slug, shortName, step, icon }) => ({ slug, shortName, step, icon }))
-
+export function AboutUs() {
   return (
     <section id="gioi-thieu" aria-labelledby="usp-title" className="overflow-hidden bg-white py-14 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -108,30 +96,6 @@ export function UspSection() {
               </Link>
             </div>
           </div>
-        </div>
-
-        {/* Quy trình 5 bước — khối tiêu đề góc trên trái + đường cong đi lên (theo ảnh mẫu) */}
-        <div className="mt-20 lg:mt-28">
-          <ProcessSteps
-            steps={steps}
-            header={
-              <div>
-                <h3 className="mt-3 text-[28px] leading-tight font-extrabold tracking-tight text-primary sm:text-4xl lg:text-[38px]">
-                  {noOrphan('Chăm sóc khép kín qua 5 bước')}
-                </h3>
-                <p className="mt-4 max-w-md text-base leading-relaxed text-muted sm:text-lg">
-                  {noOrphan('Tùy tình trạng của bé, bác sĩ chỉ định các bước cần thiết. Rê chuột vào từng bước để xem chi tiết.')}
-                </p>
-                <Link
-                  href={`/#${siteConfig.bookingAnchor}`}
-                  className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-full bg-accent px-7 text-base font-bold text-white transition-[background-color,transform] duration-200 hover:bg-accent-dark active:scale-[0.98]"
-                >
-                  <CalendarIcon className="size-5" />
-                  Đặt lịch khám
-                </Link>
-              </div>
-            }
-          />
         </div>
       </div>
     </section>
